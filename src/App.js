@@ -1,4 +1,3 @@
-
 import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState, useMemo } from "react";
 import "./App.css";
@@ -12,14 +11,14 @@ const lngs = [
 
 ];
 
-function getCurrentDate(){
+function getCurrentDateMs(){
   const opt = new Date()
-  return opt;
+  return opt.getTime();
 };
 
-function objectDate(date){
+function objectDateMs(date){
   const opt = new Date(date);
-  return opt
+  return opt.getTime()
 }
 
 function TodoList() {
@@ -39,10 +38,12 @@ function TodoList() {
     const dateObj = new Date(datetime);
     const hours = dateObj.getHours();
     const minutes = dateObj.getMinutes();
-    const days = dateObj.getDate();
-    const months = dateObj.getMonth();
-    const years = dateObj.getFullYear();
-    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}-${days.toString()}/${months.toString()}/${years.toString()}`;
+    const date = dateObj.toLocaleDateString();
+    const splitted = date.split("/")
+    const month = splitted[0];
+    const day = splitted[1];
+    const year = splitted[2]
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')} - ${day}/${month}/${year}`;
   };
 
 
@@ -90,6 +91,7 @@ function TodoList() {
   };
   const handlePriorityChange = (event) => {
     setSelectedPriority(event.target.value);
+    console.log(event.target.value);
   };
   const handleCheck = (index) => {
     
@@ -137,20 +139,20 @@ function TodoList() {
 
             <div className="task-wrapper">
               <label class="taskName" className={
-              objectDate(task.deadline) <= getCurrentDate() && !task.done
+              objectDateMs(task.deadline) <= getCurrentDateMs() && !task.done
                 ? "disabled"
                 : ""
               }>
                 <input type="checkbox" class="checkmark" className="checkmark" checked={task.done} onChange={() => handleCheck(index)} />
                 &nbsp;
-                <span className={task.done ? "done" : ""}>{objectDate(task.deadline)}</span>
+                <span className={task.done ? "done" : ""}>{formatTime(task.deadline)}</span>
                 <label className={task.done ? "done" : ""}>&nbsp;</label>
                 <span className={task.done ? "done" : ""}>{task.name}</span>
                 
               </label>
               
               <span style={{ display: "block",
-  position: "relative", fontWeight: "bold", color: "red", padding: 16 px }}>{objectDate(task.deadline) <= getCurrentDate() ? t('deadline') : ""}</span>
+  position: "relative", fontWeight: "bold", color: "red", padding: "16px" }}>{objectDateMs(task.deadline) <= getCurrentDateMs() ? t('deadline') : ""}</span>
               <button onClick={() => handleDelete(index)}>X</button>
             
             </div></li></div>
