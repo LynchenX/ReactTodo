@@ -172,8 +172,8 @@ button:hover {
 
 
 /* Styling for the checkbox container */
-.checkbox-container {
-  display: block;
+.task-wrapper checkbox {
+  display: inline;
   position: relative;
   padding-left: 30px;
   margin-bottom: 12px;
@@ -182,7 +182,7 @@ button:hover {
 }
 
 /* Hide the default checkbox */
-.checkbox-container input {
+.task-wrapper input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -213,7 +213,7 @@ button:hover {
 
 /* Show the checkmark when the custom checkbox is checked */
 .task-wrapper input:checked ~ .checkmark:after {
-  display: block;
+  display: inline;
   animation: tick 0.3s;
 }
 
