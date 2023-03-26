@@ -27,7 +27,7 @@ i18n
         translation: {
           welcome: "Chào mừng đến với bình nguyên vô tận",
           inputPlaceholderText: "Nhập một việc cần làm",
-          todoTitle: "Phần mềm ghi chú",
+          todoTitle: "Danh việc cần làm",
           addTask: "Thêm việc",
           normal: "Bình thường",
           high: "Quan trọng",
