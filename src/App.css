@@ -169,61 +169,79 @@ button:active {
 button:hover {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
 }
-/*
-.checkbox{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-size: 3rem;
-  font-weight: 4rem;
-  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  background-color: #fff;
-  color: rgb(252, 1, 1);
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
-  border: 4px;
+
+
+/* Styling for the checkbox container */
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
   cursor: pointer;
-  transition: all 235ms 0.5s ease-in-out;
-  transform: all 0.5s ease;
-  letter-spacing: 0.1rem;
-  font-weight: 600;
-  font-size: 1rem;
-}
-.checkbox:before{
-  margin: 0;
-  box-sizing: border-box;
-  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
-  border-style: solid;
-  border-bottom-left-radius: 15px 255px;
-  border-bottom-right-radius: 225px 15px;
-  border-top-left-radius: 255px 15px;
-  border-top-right-radius: 15px 225px;
-}
-.checkbox:after{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  border-radius: 15px 225px 225px 15px 30px;
-  box-shadow: rgba(0, 0, 0, 0.3) 15px 30px 15px 225px;
-  border-style: solid;
-  border-bottom-left-radius: 15px 255px;
-  border-bottom-right-radius: 225px 15px;
-  border-top-left-radius: 255px 15px;
-  border-top-right-radius: 15px 225px;
-}
-.checkbox:hover{
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 300;
-  letter-spacing: 0.3rem;
-  text-shadow: 0 0 10px #41403e,
-               0 0 20px #41403e,
-               0 0 40px #41403e,
-               0 0 80px #41403e,
-               0 0 120px #41403e;
+  font-size: 16px;
 }
 
-*/
+/* Hide the default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+/* Show the custom checkbox when checked */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create a checkmark inside the custom checkbox */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when the custom checkbox is checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+  animation: tick 0.3s;
+}
+
+/* Style the checkmark */
+.checkbox-container .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Animation for the checkmark */
+@keyframes tick {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
 /* Customize the label (the container) */
 .text-wrapper {
   display: block;
@@ -247,56 +265,7 @@ button:hover {
   width: 0;
 }
 
-/* Create a custom checkbox */
-.checkmark {
-  margin: 0;
-  padding: 0;
-  align-self: center;
-  display: inline;
-  box-sizing: border-box;
-  font-size: 3rem;
-  font-weight: 4rem;
-  background-color: #fff;
-  color: gray;
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
-  cursor: pointer;
-  
-}
 
-/* On mouse-over, add a grey background color */
-.text-wrapper:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-.text-wrapper input:checked ~ .checkmark {
-  background-color: #f38721;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the checkmark when checked */
-.text-wrapper input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Style the checkmark/indicator */
-.text-wrapper .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
 
 .taskName {
   font-size: 20px;
