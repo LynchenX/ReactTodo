@@ -42,7 +42,7 @@ function TodoList() {
     const days = dateObj.getDate();
     const months = dateObj.getMonth();
     const years = dateObj.getFullYear();
-    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}-${days.toString()}/${months.toString()+1}/${years.toString()}`;
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}-${days.toString()}/${months.toString()}/${years.toString()}`;
   };
 
 
@@ -150,7 +150,7 @@ function TodoList() {
               </label>
               
               <span style={{ display: "block",
-  position: "relative", fontWeight: "bold", color: "red" }}>{objectDate(task.deadline) <= getCurrentDate() ? t('deadline') : ""}</span>
+  position: "relative", fontWeight: "bold", color: "red", paddingL 16px }}>{objectDate(task.deadline) <= getCurrentDate() ? t('deadline') : ""}</span>
               <button onClick={() => handleDelete(index)}>X</button>
             
             </div></li></div>
