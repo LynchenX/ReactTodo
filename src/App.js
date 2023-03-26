@@ -143,13 +143,11 @@ function TodoList() {
                 ? "disabled"
                 : ""
               }>
-                <label class="checkbox-container">
                   <input type="checkbox" class="checkmark" className="checkmark" checked={task.done} onChange={() => handleCheck(index)} />
                   &nbsp;
                   <span className={task.done ? "done" : ""}>{formatTime(task.deadline)}</span>
                   <label className={task.done ? "done" : ""}>&nbsp;</label>
                   <span className={task.done ? "done" : ""}>{task.name}</span>
-                </label>
               </label>
               
               <span style={{ display: "block",
