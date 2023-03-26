@@ -42,7 +42,7 @@ function TodoList() {
     const days = dateObj.getDate();
     const months = dateObj.getMonth();
     const years = dateObj.getFullYear();
-    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}-${days.toString()}/${months.toString()}/${years.toString()}`;
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}-${days.toString()}/${months.toString()+1}/${years.toString()}`;
   };
 
 
