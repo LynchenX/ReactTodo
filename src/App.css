@@ -172,8 +172,8 @@ button:hover {
 
 
 /* Styling for the checkbox container */
-.task-wrapper checkbox {
-  display: inline;
+.checkbox-container {
+  display: block;
   position: relative;
   padding-left: 30px;
   margin-bottom: 12px;
@@ -182,7 +182,7 @@ button:hover {
 }
 
 /* Hide the default checkbox */
-.task-wrapper input {
+.checkbox-container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -212,13 +212,13 @@ button:hover {
 }
 
 /* Show the checkmark when the custom checkbox is checked */
-.task-wrapper input:checked ~ .checkmark:after {
-  display: inline;
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
   animation: tick 0.3s;
 }
 
 /* Style the checkmark */
-.task-wrapper .checkmark:after {
+.checkbox-container .checkmark:after {
   left: 6px;
   top: 2px;
   width: 5px;
@@ -257,6 +257,13 @@ button:hover {
 }
 
 /* Hide the browser's default checkbox */
+.text-wrapper input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
 
 
 
