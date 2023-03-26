@@ -212,13 +212,13 @@ button:hover {
 }
 
 /* Show the checkmark when the custom checkbox is checked */
-.checkbox-container input:checked ~ .checkmark:after {
+.task-wrapper input:checked ~ .checkmark:after {
   display: block;
   animation: tick 0.3s;
 }
 
 /* Style the checkmark */
-.checkbox-container .checkmark:after {
+.task-wrapper .checkmark:after {
   left: 6px;
   top: 2px;
   width: 5px;
@@ -257,13 +257,6 @@ button:hover {
 }
 
 /* Hide the browser's default checkbox */
-.text-wrapper input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
 
 
 
