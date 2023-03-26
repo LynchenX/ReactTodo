@@ -150,7 +150,7 @@ function TodoList() {
               </label>
               
               <span style={{ display: "block",
-  position: "relative", fontWeight: "bold", color: "red", padding: 16px }}>{objectDate(task.deadline) <= getCurrentDate() ? t('deadline') : ""}</span>
+  position: "relative", fontWeight: "bold", color: "red", padding: 16 px }}>{objectDate(task.deadline) <= getCurrentDate() ? t('deadline') : ""}</span>
               <button onClick={() => handleDelete(index)}>X</button>
             
             </div></li></div>
